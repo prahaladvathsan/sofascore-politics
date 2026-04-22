@@ -1,0 +1,10 @@
+name: News ingest placeholder
+
+on:
+  workflow_dispatch:
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "News ingestion is intentionally not implemented in phase 1."

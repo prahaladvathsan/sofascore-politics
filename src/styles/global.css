@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-ink: #102542;
+  --color-brand-saffron: #d97706;
+  --color-brand-slate: #4b5563;
+  --color-brand-sand: #f7f3ea;
+  --color-brand-leaf: #0f766e;
+  --color-brand-rose: #be123c;
+  --shadow-card: 0 24px 60px rgba(16, 37, 66, 0.12);
+}
+
+:root {
+  color-scheme: light;
+  --page-bg: #f7f3ea;
+  --page-ink: #102542;
+  --page-soft: #fffdf8;
+  --page-line: rgba(16, 37, 66, 0.12);
+}
+
+html {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(217, 119, 6, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(15, 118, 110, 0.12),
+      transparent 24%
+    ),
+    linear-gradient(180deg, #fffdf8 0%, #f7f3ea 52%, #eef3f1 100%);
+}
+
+body {
+  @apply min-h-screen text-brand-ink antialiased;
+  background: transparent;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+a {
+  @apply transition-colors;
+}
+
+::selection {
+  background: rgba(217, 119, 6, 0.18);
+}

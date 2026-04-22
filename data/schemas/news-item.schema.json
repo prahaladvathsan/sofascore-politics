@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://political-report-card.example/data/schemas/news-item.schema.json",
+  "title": "NewsItem",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "headline",
+    "published_at",
+    "related_entity_ids",
+    "summary",
+    "url",
+    "_meta"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "string"
+    },
+    "published_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "related_entity_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "summary": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "_meta": {
+      "$ref": "common.schema.json#/definitions/meta"
+    }
+  }
+}

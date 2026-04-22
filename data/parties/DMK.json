@@ -1,0 +1,16 @@
+{
+  "id": "DMK",
+  "name": "Dravida Munnetra Kazhagam",
+  "short_name": "DMK",
+  "color": "#d71920",
+  "official_url": "https://www.dmk.in/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Dravida_Munnetra_Kazhagam",
+        "name": "Wikipedia - Dravida Munnetra Kazhagam",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      }
+    ]
+  }
+}

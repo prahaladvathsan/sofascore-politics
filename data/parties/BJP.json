@@ -1,0 +1,16 @@
+{
+  "id": "BJP",
+  "name": "Bharatiya Janata Party",
+  "short_name": "BJP",
+  "color": "#f58220",
+  "official_url": "https://www.bjp.org/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Bharatiya_Janata_Party",
+        "name": "Wikipedia - Bharatiya Janata Party",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      }
+    ]
+  }
+}

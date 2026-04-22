@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getCandidate,
+  getConstituency,
+  getParty,
+  getState,
+  listConstituencyIds,
+} from "../../lib/data";
+
+export function getStaticPaths() {
+  return listConstituencyIds().map((id) => ({
+    params: { id },
+  }));
+}
+
+const baseUrl = import.meta.env.BASE_URL;
+const id = Astro.params.id ?? "TN-177";
+const constituency = getConstituency(id);
+const candidate = getCandidate(constituency.current_mla_id);
+const party = getParty(constituency.current_party_id);
+const state = getState(constituency.state_code);
+---
+
+<BaseLayout
+  title={`${constituency.name} | Political Report Card`}
+  description={`Static constituency card for ${constituency.name}, Tamil Nadu.`}
+>
+  <section class="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div class="grid gap-6 lg:grid-cols-[1fr_0.8fr]">
+      <article
+        class="rounded-[2rem] border border-brand-ink/10 bg-white/85 p-6 shadow-card"
+      >
+        <p class="text-sm uppercase tracking-[0.18em] text-brand-saffron">
+          Constituency card
+        </p>
+        <div class="mt-3 flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h1 class="text-4xl font-semibold text-brand-ink">
+              {constituency.name}
+            </h1>
+            <p class="mt-2 text-brand-slate">
+              Seat {constituency.number} in {state.name}, seeded as a pre-May-4,
+              2026 incumbent snapshot.
+            </p>
+          </div>
+          <span
+            class="rounded-full px-3 py-1 text-sm font-medium text-white"
+            style={`background:${party.color};`}
+          >
+            {party.short_name}
+          </span>
+        </div>
+        <p class="mt-6 rounded-3xl bg-brand-sand/80 p-4 text-brand-slate">
+          {constituency.summary}
+        </p>
+
+        <dl class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-3xl border border-brand-ink/10 bg-white p-4">
+            <dt class="text-sm uppercase tracking-[0.14em] text-brand-saffron">
+              District
+            </dt>
+            <dd class="mt-2 text-lg font-medium text-brand-ink">
+              {constituency.district}
+            </dd>
+          </div>
+          <div class="rounded-3xl border border-brand-ink/10 bg-white p-4">
+            <dt class="text-sm uppercase tracking-[0.14em] text-brand-saffron">
+              Reservation
+            </dt>
+            <dd class="mt-2 text-lg font-medium text-brand-ink">
+              {constituency.reservation}
+            </dd>
+          </div>
+          <div class="rounded-3xl border border-brand-ink/10 bg-white p-4">
+            <dt class="text-sm uppercase tracking-[0.14em] text-brand-saffron">
+              Current MLA
+            </dt>
+            <dd class="mt-2 text-lg font-medium text-brand-ink">
+              {candidate.name}
+            </dd>
+          </div>
+          <div class="rounded-3xl border border-brand-ink/10 bg-white p-4">
+            <dt class="text-sm uppercase tracking-[0.14em] text-brand-saffron">
+              Latest election year
+            </dt>
+            <dd class="mt-2 text-lg font-medium text-brand-ink">
+              {constituency.latest_election_year}
+            </dd>
+          </div>
+        </dl>
+      </article>
+
+      <aside class="space-y-6">
+        <div
+          class="rounded-[2rem] border border-brand-ink/10 bg-white/85 p-6 shadow-card"
+        >
+          <p class="text-sm uppercase tracking-[0.18em] text-brand-saffron">
+            Office holder
+          </p>
+          <h2 class="mt-3 text-2xl font-semibold text-brand-ink">
+            {candidate.name}
+          </h2>
+          <p class="mt-2 text-brand-slate">
+            {candidate.office} representing {constituency.name} for {
+              party.name
+            }.
+          </p>
+          <dl class="mt-5 grid gap-3 text-sm text-brand-slate">
+            <div
+              class="flex items-center justify-between rounded-2xl bg-brand-sand/70 px-4 py-3"
+            >
+              <dt>Term start</dt>
+              <dd class="font-medium text-brand-ink">{candidate.term_start}</dd>
+            </div>
+            <div
+              class="flex items-center justify-between rounded-2xl bg-brand-sand/70 px-4 py-3"
+            >
+              <dt>Incumbent</dt>
+              <dd class="font-medium text-brand-ink">
+                {candidate.incumbent ? "Yes" : "No"}
+              </dd>
+            </div>
+          </dl>
+          <div class="mt-5 flex flex-wrap gap-2">
+            {
+              candidate.profile_urls.map((url) => (
+                <a
+                  href={url}
+                  class="rounded-full border border-brand-ink/15 px-3 py-2 text-sm font-medium text-brand-ink transition hover:border-brand-saffron/35"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open source page
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <div
+          class="rounded-[2rem] border border-brand-ink/10 bg-white/85 p-6 shadow-card"
+        >
+          <p class="text-sm uppercase tracking-[0.18em] text-brand-saffron">
+            Sources
+          </p>
+          <ul class="mt-4 space-y-3 text-sm text-brand-slate">
+            {
+              constituency._meta.sources.map((source) => (
+                <li class="rounded-2xl bg-brand-sand/70 px-4 py-3">
+                  <a
+                    href={source.url}
+                    class="font-medium text-brand-ink underline decoration-brand-saffron/40 underline-offset-4"
+                  >
+                    {source.name}
+                  </a>
+                  <p class="mt-1">Retrieved {source.retrieved_at}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a
+        href={`${baseUrl}state/${state.code}`}
+        class="rounded-full border border-brand-ink/15 bg-white px-4 py-2 text-sm font-medium text-brand-ink transition hover:border-brand-saffron/35"
+      >
+        Back to state page
+      </a>
+      <a
+        href={baseUrl}
+        class="rounded-full bg-brand-ink px-4 py-2 text-sm font-medium text-white transition hover:bg-brand-ink/90"
+      >
+        Back to homepage
+      </a>
+    </div>
+  </section>
+</BaseLayout>

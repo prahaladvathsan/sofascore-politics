@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://political-report-card.example/data/schemas/state.schema.json",
+  "title": "State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "code",
+    "name",
+    "type",
+    "assembly_seats_total",
+    "seed_constituency_ids",
+    "theme",
+    "_meta"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "code": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["state", "union_territory"]
+    },
+    "assembly_seats_total": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "seed_constituency_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2}-\\d{3}$"
+      }
+    },
+    "theme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary", "accent"],
+      "properties": {
+        "primary": {
+          "type": "string"
+        },
+        "accent": {
+          "type": "string"
+        }
+      }
+    },
+    "_meta": {
+      "$ref": "common.schema.json#/definitions/meta"
+    }
+  }
+}

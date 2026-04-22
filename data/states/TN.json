@@ -1,0 +1,27 @@
+{
+  "id": "TN",
+  "code": "TN",
+  "name": "Tamil Nadu",
+  "type": "state",
+  "assembly_seats_total": 234,
+  "seed_constituency_ids": ["TN-013", "TN-086", "TN-120", "TN-177", "TN-184"],
+  "theme": {
+    "primary": "#9f1239",
+    "accent": "#0f766e"
+  },
+  "_meta": {
+    "source_note": "Phase-1 seed state file anchored to Tamil Nadu assembly context and the five seeded constituency cards.",
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Tamil_Nadu_Legislative_Assembly",
+        "name": "Wikipedia - Tamil Nadu Legislative Assembly",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      },
+      {
+        "url": "https://www.eci.gov.in/eci-backend/public/api/download?url=LMAhAK6sOPBp%2FNFF0iRfXbEB1EVSLT41NNLRjYNJJP1KivrUxbfqkDatmHy12e%2FzVx8fLfn2ReU7TfrqYobgIjqxF0Y30PrbSNHlx8A5OO79CAjyA1W7mQg6vNiyKblliln8kOp3b1lyKaqH5ioq9Oce%2BHqHMol3xcK0a3h7vjY%3D",
+        "name": "Election Commission of India - List of Deployed General Observers (Tamil Nadu, 2021 General Election PDF)",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      }
+    ]
+  }
+}

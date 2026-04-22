@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://political-report-card.example/data/schemas/constituency.schema.json",
+  "title": "Constituency",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "state_code",
+    "number",
+    "name",
+    "district",
+    "reservation",
+    "current_mla_id",
+    "current_party_id",
+    "latest_election_year",
+    "summary",
+    "_meta"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}-\\d{3}$"
+    },
+    "state_code": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "name": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "reservation": {
+      "type": "string",
+      "enum": ["GEN", "SC", "ST"]
+    },
+    "current_mla_id": {
+      "type": "string"
+    },
+    "current_party_id": {
+      "type": "string"
+    },
+    "latest_election_year": {
+      "type": "integer",
+      "minimum": 1950
+    },
+    "summary": {
+      "type": "string"
+    },
+    "_meta": {
+      "$ref": "common.schema.json#/definitions/meta"
+    }
+  }
+}

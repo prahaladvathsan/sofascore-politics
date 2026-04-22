@@ -1,0 +1,6 @@
+dist/
+node_modules/
+public/data/
+.astro/
+.DS_Store
+Thumbs.db

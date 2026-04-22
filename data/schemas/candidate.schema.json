@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://political-report-card.example/data/schemas/candidate.schema.json",
+  "title": "Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "party_id",
+    "constituency_id",
+    "office",
+    "incumbent",
+    "term_start",
+    "profile_urls",
+    "_meta"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "party_id": {
+      "type": "string"
+    },
+    "constituency_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}-\\d{3}$"
+    },
+    "office": {
+      "type": "string"
+    },
+    "incumbent": {
+      "type": "boolean"
+    },
+    "term_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "profile_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "_meta": {
+      "$ref": "common.schema.json#/definitions/meta"
+    }
+  }
+}

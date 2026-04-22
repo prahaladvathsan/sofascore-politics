@@ -1,0 +1,16 @@
+{
+  "id": "INC",
+  "name": "Indian National Congress",
+  "short_name": "INC",
+  "color": "#1f57a4",
+  "official_url": "https://www.inc.in/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Indian_National_Congress",
+        "name": "Wikipedia - Indian National Congress",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      }
+    ]
+  }
+}

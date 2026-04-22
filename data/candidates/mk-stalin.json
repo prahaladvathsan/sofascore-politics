@@ -1,0 +1,28 @@
+{
+  "id": "mk-stalin",
+  "name": "M. K. Stalin",
+  "party_id": "DMK",
+  "constituency_id": "TN-013",
+  "office": "Member of the Tamil Nadu Legislative Assembly",
+  "incumbent": true,
+  "term_start": "2021-05-02",
+  "profile_urls": [
+    "https://en.wikipedia.org/wiki/M._K._Stalin",
+    "https://en.wikipedia.org/wiki/Kolathur_Assembly_constituency"
+  ],
+  "_meta": {
+    "source_note": "Incumbent detail frozen to the requested pre-May-4, 2026 snapshot.",
+    "sources": [
+      {
+        "url": "https://www.eci.gov.in/eci-backend/public/api/download?url=LMAhAK6sOPBp%2FNFF0iRfXbEB1EVSLT41NNLRjYNJJP1KivrUxbfqkDatmHy12e%2FzVx8fLfn2ReU7TfrqYobgIjqxF0Y30PrbSNHlx8A5OO79CAjyA1W7mQg6vNiyKblliln8kOp3b1lyKaqH5ioq9Oce%2BHqHMol3xcK0a3h7vjY%3D",
+        "name": "Election Commission of India - 13 Kolathur listed in the 2021 Tamil Nadu General Election PDF",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/M._K._Stalin",
+        "name": "Wikipedia - M. K. Stalin",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "s-mangudi",
+  "name": "S. Mangudi",
+  "party_id": "INC",
+  "constituency_id": "TN-184",
+  "office": "Member of the Tamil Nadu Legislative Assembly",
+  "incumbent": true,
+  "term_start": "2021-05-02",
+  "profile_urls": [
+    "https://en.wikipedia.org/wiki/Karaikudi_Assembly_constituency"
+  ],
+  "_meta": {
+    "source_note": "No dedicated Wikipedia biography was relied on; the incumbent mapping is taken from the constituency page snapshot.",
+    "sources": [
+      {
+        "url": "https://www.eci.gov.in/eci-backend/public/api/download?url=LMAhAK6sOPBp%2FNFF0iRfXbEB1EVSLT41NNLRjYNJJP1KivrUxbfqkDatmHy12e%2FzVx8fLfn2ReU7TfrqYobgIjqxF0Y30PrbSNHlx8A5OO79CAjyA1W7mQg6vNiyKblliln8kOp3b1lyKaqH5ioq9Oce%2BHqHMol3xcK0a3h7vjY%3D",
+        "name": "Election Commission of India - 184 Karaikudi listed in the 2021 Tamil Nadu General Election PDF",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Karaikudi_Assembly_constituency",
+        "name": "Wikipedia - Karaikudi Assembly constituency",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      }
+    ]
+  }
+}

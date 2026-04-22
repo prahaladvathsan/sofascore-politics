@@ -1,0 +1,27 @@
+{
+  "id": "TN-120",
+  "state_code": "TN",
+  "number": 120,
+  "name": "Coimbatore South",
+  "district": "Coimbatore",
+  "reservation": "GEN",
+  "current_mla_id": "vanathi-srinivasan",
+  "current_party_id": "BJP",
+  "latest_election_year": 2021,
+  "summary": "A high-visibility Coimbatore city seat represented in this seed set by BJP MLA Vanathi Srinivasan.",
+  "_meta": {
+    "source_note": "Constituency number cross-checked against the ECI 2021 Tamil Nadu general election PDF before seeding.",
+    "sources": [
+      {
+        "url": "https://www.eci.gov.in/eci-backend/public/api/download?url=LMAhAK6sOPBp%2FNFF0iRfXbEB1EVSLT41NNLRjYNJJP1KivrUxbfqkDatmHy12e%2FzVx8fLfn2ReU7TfrqYobgIjqxF0Y30PrbSNHlx8A5OO79CAjyA1W7mQg6vNiyKblliln8kOp3b1lyKaqH5ioq9Oce%2BHqHMol3xcK0a3h7vjY%3D",
+        "name": "Election Commission of India - 120 Coimbatore South listed in the 2021 Tamil Nadu General Election PDF",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Coimbatore_South_Assembly_constituency",
+        "name": "Wikipedia - Coimbatore South Assembly constituency",
+        "retrieved_at": "2026-04-22T00:00:00+05:30"
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+---
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Static political transparency cards for Indian state elections.",
+} = Astro.props as Props;
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="relative flex min-h-screen flex-col">
+      <header class="border-b border-brand-ink/10 bg-white/75 backdrop-blur">
+        <div
+          class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+        >
+          <a href={baseUrl} class="font-semibold tracking-tight text-brand-ink">
+            Political Report Card
+          </a>
+          <nav class="flex items-center gap-4 text-sm text-brand-slate">
+            <a href={baseUrl}>Home</a>
+            <a href={`${baseUrl}state/TN`}>Tamil Nadu</a>
+            <a href={`${baseUrl}constituency/TN-177`}>Peravurani</a>
+          </nav>
+        </div>
+      </header>
+      <main class="flex-1">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>
