@@ -1,149 +1,148 @@
 ---
-import IndiaMap from "../components/Map/IndiaMap.tsx";
+import NationalChoropleth from "../components/Map/NationalChoropleth.tsx";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCandidate, getParty, listConstituenciesByState } from "../lib/data";
+import {
+  listConstituenciesByState,
+  listStateElectionStatuses,
+} from "../lib/data";
+import { toStatePath, withBase } from "../lib/routing";
+import { buildNationalStateSummaries } from "../lib/view-models";
 
 const baseUrl = import.meta.env.BASE_URL;
-const cards = listConstituenciesByState("TN").map((constituency) => ({
-  constituency,
-  candidate: getCandidate(constituency.current_mla_id),
-  party: getParty(constituency.current_party_id),
-}));
+const stateSummaries = buildNationalStateSummaries(baseUrl);
+const scheduledStates = stateSummaries.filter(
+  (state) => state.scheduleStatus === "officially_announced",
+);
+const seededTamilNaduSeats = listConstituenciesByState("TN");
+const assemblyStateCount = stateSummaries.filter(
+  (state) => state.hasAssembly,
+).length;
+const scheduledCount = listStateElectionStatuses().length;
 ---
 
 <BaseLayout
   title="Political Report Card | India Election Transparency"
-  description="A static, map-first transparency prototype for Indian state elections."
+  description="Static national-to-seat election navigation for Indian state assemblies."
 >
   <section
-    class="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-14"
+    class="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-14"
   >
     <div class="space-y-6">
-      <div
-        class="inline-flex items-center rounded-full border border-brand-saffron/20 bg-white/70 px-3 py-1 text-sm text-brand-saffron"
-      >
-        Phase 1 hello-world deploy
-      </div>
+      <p class="eyebrow">Core navigation MVP</p>
       <div class="space-y-4">
         <h1
-          class="max-w-xl text-4xl font-semibold tracking-tight text-brand-ink sm:text-5xl"
+          class="max-w-3xl text-5xl tracking-tight sm:text-6xl"
+          tabindex="-1"
+          data-route-heading="true"
+          style="view-transition-name:national-heading"
         >
-          Map-first political transparency, seeded for Tamil Nadu.
+          National heatmap to constituency panel, without a backend in sight.
         </h1>
-        <p class="max-w-2xl text-lg leading-8 text-brand-slate">
-          This prototype keeps every public record as static JSON, ships through
-          GitHub Pages, and leaves LLM-backed work inside offline pipelines
-          rather than the request path.
+        <p class="max-w-2xl text-lg leading-8 text-page-muted">
+          The homepage loads only the national map bundle, colors states by the
+          months remaining until an officially announced ECI poll date, and
+          falls back to an accessible list view whenever geometry fails.
         </p>
       </div>
-      <div class="grid gap-4 sm:grid-cols-2">
-        <article
-          class="rounded-3xl border border-brand-ink/10 bg-white/85 p-5 shadow-card"
-        >
-          <p class="text-sm uppercase tracking-[0.2em] text-brand-saffron">
-            Seeded scope
-          </p>
-          <p class="mt-3 text-3xl font-semibold text-brand-ink">
-            {cards.length}
-          </p>
-          <p class="mt-2 text-sm text-brand-slate">
-            Tamil Nadu constituencies with incumbent MLA cards in this phase.
+      <div class="grid gap-4 sm:grid-cols-3">
+        <article class="metric-card">
+          <p class="eyebrow">Assembly routes</p>
+          <p class="mt-3 text-3xl font-semibold">{assemblyStateCount}</p>
+          <p class="metric-copy">
+            State pages are live for every assembly-bearing state or territory.
           </p>
         </article>
-        <article
-          class="rounded-3xl border border-brand-ink/10 bg-white/85 p-5 shadow-card"
-        >
-          <p class="text-sm uppercase tracking-[0.2em] text-brand-leaf">
-            Static data
-          </p>
-          <p class="mt-3 text-3xl font-semibold text-brand-ink">100%</p>
-          <p class="mt-2 text-sm text-brand-slate">
-            No backend, database, or request-time AI calls.
+        <article class="metric-card">
+          <p class="eyebrow">Official schedules</p>
+          <p class="mt-3 text-3xl font-semibold">{scheduledCount}</p>
+          <p class="metric-copy">
+            States with an officially announced ECI calendar are colored with
+            viridis.
           </p>
         </article>
-      </div>
-      <div class="flex flex-wrap gap-3">
-        <a
-          href={`${baseUrl}state/TN`}
-          class="rounded-full bg-brand-ink px-5 py-3 text-sm font-medium text-white transition hover:bg-brand-ink/90"
-        >
-          Explore Tamil Nadu
-        </a>
-        <a
-          href={`${baseUrl}constituency/TN-177`}
-          class="rounded-full border border-brand-ink/15 bg-white/80 px-5 py-3 text-sm font-medium text-brand-ink transition hover:border-brand-ink/30"
-        >
-          Open Peravurani card
-        </a>
+        <article class="metric-card">
+          <p class="eyebrow">Seeded seats</p>
+          <p class="mt-3 text-3xl font-semibold">
+            {seededTamilNaduSeats.length}
+          </p>
+          <p class="metric-copy">
+            Tamil Nadu incumbent cards are carried forward as the first overlay
+            layer.
+          </p>
+        </article>
       </div>
     </div>
-    <IndiaMap client:load />
+    <div class="editorial-panel">
+      <p class="eyebrow">Today's live routes</p>
+      <h2 class="panel-title">Where the MVP goes deepest</h2>
+      <div class="mt-5 grid gap-3">
+        {
+          [
+            {
+              name: "Tamil Nadu map view",
+              copy: "Constituency polygons, seeded MLA overlays, and a canonical lowercase route.",
+              href: withBase(baseUrl, toStatePath("TN")),
+            },
+            {
+              name: "West Bengal map view",
+              copy: "Geometry-backed navigation now lives alongside a sparse candidate state.",
+              href: withBase(baseUrl, toStatePath("WB")),
+            },
+          ].map((item) => (
+            <a href={item.href} class="shell-card block">
+              <p class="font-semibold">{item.name}</p>
+              <p class="shell-copy">{item.copy}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
   </section>
 
   <section class="mx-auto max-w-6xl px-4 pb-14 sm:px-6 lg:px-8">
-    <div class="mb-6 flex items-end justify-between gap-4">
-      <div>
-        <p class="text-sm uppercase tracking-[0.2em] text-brand-saffron">
-          Seed data
-        </p>
-        <h2 class="mt-2 text-2xl font-semibold text-brand-ink">
-          Tamil Nadu hello-world cards
-        </h2>
+    <NationalChoropleth
+      client:load
+      geometryPath={`${baseUrl}data/geo/optimized/india-states.topojson`}
+      states={stateSummaries}
+    />
+  </section>
+
+  <section
+    class="mx-auto grid max-w-6xl gap-6 px-4 pb-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8"
+  >
+    <div class="editorial-panel">
+      <p class="eyebrow">Officially scheduled</p>
+      <h2 class="panel-title">States with an ECI-announced calendar</h2>
+      <div class="mt-5 grid gap-3">
+        {
+          scheduledStates.map((state) => (
+            <a href={state.href} class="shell-card block">
+              <p class="font-semibold">{state.name}</p>
+              <p class="shell-copy">{state.statusLabel}</p>
+            </a>
+          ))
+        }
       </div>
-      <p class="max-w-md text-sm text-brand-slate">
-        Constituency numbering is cross-checked against the official ECI 2021
-        PDF and incumbent context is frozen to the pre-May-4, 2026 snapshot for
-        this scaffold.
-      </p>
     </div>
-    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-      {
-        cards.map(({ constituency, candidate, party }) => (
-          <a
-            href={`${baseUrl}constituency/${constituency.id}`}
-            class="rounded-3xl border border-brand-ink/10 bg-white/85 p-5 shadow-card transition hover:-translate-y-0.5 hover:border-brand-saffron/30"
-          >
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <p class="text-sm uppercase tracking-[0.18em] text-brand-saffron">
-                  Seat {constituency.number}
-                </p>
-                <h3 class="mt-2 text-xl font-semibold text-brand-ink">
-                  {constituency.name}
-                </h3>
-              </div>
-              <span
-                class="rounded-full px-3 py-1 text-xs font-medium text-white"
-                style={`background:${party.color};`}
-              >
-                {party.short_name}
-              </span>
-            </div>
-            <p class="mt-4 text-sm text-brand-slate">{constituency.summary}</p>
-            <dl class="mt-5 grid gap-2 text-sm text-brand-slate">
-              <div class="flex justify-between gap-3">
-                <dt>District</dt>
-                <dd class="font-medium text-brand-ink">
-                  {constituency.district}
-                </dd>
-              </div>
-              <div class="flex justify-between gap-3">
-                <dt>Current MLA</dt>
-                <dd class="text-right font-medium text-brand-ink">
-                  {candidate.name}
-                </dd>
-              </div>
-            </dl>
-          </a>
-        ))
-      }
-    </div>
-    <div
-      class="mt-8 rounded-3xl border border-dashed border-brand-ink/15 bg-white/60 p-5 text-sm text-brand-slate"
-    >
-      The underlying JSON files are served statically from <code>/data</code>,
-      including schemas under
-      <code>/data/schemas</code> for future pipeline validation.
+
+    <div class="editorial-panel">
+      <p class="eyebrow">Seed overlay</p>
+      <h2 class="panel-title">Tamil Nadu seats already enriched</h2>
+      <div class="mt-5 grid gap-3">
+        {
+          seededTamilNaduSeats.map((seat) => (
+            <a
+              href={`${baseUrl}constituency/${seat.id.toLowerCase()}`}
+              class="shell-card block"
+            >
+              <p class="font-semibold">
+                Seat {seat.number}: {seat.name}
+              </p>
+              <p class="shell-copy">{seat.summary}</p>
+            </a>
+          ))
+        }
+      </div>
     </div>
   </section>
 </BaseLayout>

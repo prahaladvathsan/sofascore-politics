@@ -1,0 +1,11 @@
+---
+import LowercaseRedirect from "../../components/LowercaseRedirect.astro";
+import { toConstituencyPath, withBase } from "../../lib/routing";
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<LowercaseRedirect
+  to={withBase(baseUrl, toConstituencyPath("TN-184"))}
+  title="Redirecting to /constituency/tn-184"
+/>

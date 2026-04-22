@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://political-report-card.example/data/schemas/constituency-map.schema.json",
+  "title": "Constituency Map Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "state_code",
+    "number",
+    "name",
+    "feature_key",
+    "slug",
+    "_meta"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}-\\d{3}$"
+    },
+    "state_code": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "district": {
+      "type": "string"
+    },
+    "feature_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z]{2}-\\d{3}$"
+    },
+    "_meta": {
+      "$ref": "./common.schema.json#/definitions/meta"
+    }
+  }
+}

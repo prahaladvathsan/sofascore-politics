@@ -4,7 +4,7 @@ import tseslint from "typescript-eslint";
 
 export default [
   {
-    ignores: [".astro", "dist", "node_modules", "public/data"],
+    ignores: [".astro", ".tmp", "dist", "node_modules", "public/data"],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -18,7 +18,12 @@ export default [
         console: "readonly",
         document: "readonly",
         fetch: "readonly",
+        HTMLElement: "readonly",
+        HTMLAnchorElement: "readonly",
+        HTMLButtonElement: "readonly",
+        localStorage: "readonly",
         process: "readonly",
+        requestAnimationFrame: "readonly",
         setTimeout: "readonly",
         window: "readonly",
       },

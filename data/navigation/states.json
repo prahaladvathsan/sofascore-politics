@@ -1,0 +1,938 @@
+[
+  {
+    "code": "AN",
+    "name": "Andaman & Nicobar",
+    "type": "union_territory",
+    "has_assembly": false,
+    "state_route_mode": "not_applicable",
+    "theme": {
+      "primary": "#b45309",
+      "accent": "#10b981"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "AP",
+    "name": "Andhra Pradesh",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#0f766e",
+      "accent": "#f59e0b"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "AR",
+    "name": "Arunachal Pradesh",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#334155",
+      "accent": "#22c55e"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "AS",
+    "name": "Assam",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#7c3aed",
+      "accent": "#fb7185"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BR",
+    "name": "Bihar",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#7c3aed",
+      "accent": "#fb7185"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "CH",
+    "name": "Chandigarh",
+    "type": "union_territory",
+    "has_assembly": false,
+    "state_route_mode": "not_applicable",
+    "theme": {
+      "primary": "#0f766e",
+      "accent": "#f59e0b"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "CG",
+    "name": "Chhattisgarh",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#1d4ed8",
+      "accent": "#f97316"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "DN",
+    "name": "Dadra and Nagar Haveli and Daman and Diu",
+    "type": "union_territory",
+    "has_assembly": false,
+    "state_route_mode": "not_applicable",
+    "theme": {
+      "primary": "#9f1239",
+      "accent": "#facc15"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "DL",
+    "name": "Delhi",
+    "type": "union_territory",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#1d4ed8",
+      "accent": "#f97316"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "GA",
+    "name": "Goa",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#7c3aed",
+      "accent": "#fb7185"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "GJ",
+    "name": "Gujarat",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#0f766e",
+      "accent": "#f59e0b"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "HR",
+    "name": "Haryana",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#7c3aed",
+      "accent": "#fb7185"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "HP",
+    "name": "Himachal Pradesh",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#9f1239",
+      "accent": "#facc15"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "JK",
+    "name": "Jammu & Kashmir",
+    "type": "union_territory",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#b45309",
+      "accent": "#10b981"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "JH",
+    "name": "Jharkhand",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#9f1239",
+      "accent": "#facc15"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "KA",
+    "name": "Karnataka",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#9f1239",
+      "accent": "#facc15"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "KL",
+    "name": "Kerala",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#0f766e",
+      "accent": "#f59e0b"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "LA",
+    "name": "Ladakh",
+    "type": "union_territory",
+    "has_assembly": false,
+    "state_route_mode": "not_applicable",
+    "theme": {
+      "primary": "#334155",
+      "accent": "#22c55e"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "LD",
+    "name": "Lakshadweep",
+    "type": "union_territory",
+    "has_assembly": false,
+    "state_route_mode": "not_applicable",
+    "theme": {
+      "primary": "#1d4ed8",
+      "accent": "#f97316"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "MP",
+    "name": "Madhya Pradesh",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#0f766e",
+      "accent": "#f59e0b"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "MH",
+    "name": "Maharashtra",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#b45309",
+      "accent": "#10b981"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "MN",
+    "name": "Manipur",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#b45309",
+      "accent": "#10b981"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ML",
+    "name": "Meghalaya",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#334155",
+      "accent": "#22c55e"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "MZ",
+    "name": "Mizoram",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#b45309",
+      "accent": "#10b981"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "NL",
+    "name": "Nagaland",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#7c3aed",
+      "accent": "#fb7185"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "OD",
+    "name": "Odisha",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#334155",
+      "accent": "#22c55e"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "PY",
+    "name": "Puducherry",
+    "type": "union_territory",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#0f766e",
+      "accent": "#f59e0b"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "PB",
+    "name": "Punjab",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#9f1239",
+      "accent": "#facc15"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "RJ",
+    "name": "Rajasthan",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#1d4ed8",
+      "accent": "#f97316"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "SK",
+    "name": "Sikkim",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#9f1239",
+      "accent": "#facc15"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "TN",
+    "name": "Tamil Nadu",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "map",
+    "theme": {
+      "primary": "#7c2d12",
+      "accent": "#22c55e"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "TS",
+    "name": "Telangana",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#b45309",
+      "accent": "#10b981"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "TR",
+    "name": "Tripura",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#7c3aed",
+      "accent": "#fb7185"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "UP",
+    "name": "Uttar Pradesh",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#334155",
+      "accent": "#22c55e"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "UK",
+    "name": "Uttarakhand",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "shell",
+    "theme": {
+      "primary": "#7c3aed",
+      "accent": "#fb7185"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "WB",
+    "name": "West Bengal",
+    "type": "state",
+    "has_assembly": true,
+    "state_route_mode": "map",
+    "theme": {
+      "primary": "#1d4ed8",
+      "accent": "#facc15"
+    },
+    "_meta": {
+      "source_note": "Theme and route mode fields are application metadata layered on top of Datameet geometry.",
+      "sources": [
+        {
+          "url": "https://github.com/datameet/maps/tree/b3fbbde595310b397a55d718e0958ce249a4fa1f/States",
+          "name": "Datameet Admin2 state boundary shapefile",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://github.com/datameet/maps/blob/b3fbbde595310b397a55d718e0958ce249a4fa1f/website/docs/states/index.md",
+          "name": "Datameet state boundary notes",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  }
+]

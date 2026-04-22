@@ -1,4 +1,7 @@
 dist
 node_modules
 public/data
+.lighthouseci
+data/geo/optimized
+data/geo/source
 package-lock.json

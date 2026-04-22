@@ -1,5 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import { toConstituencyPath, toStatePath, withBase } from "../lib/routing";
 import "../styles/global.css";
 
 interface Props {
@@ -22,21 +24,49 @@ const baseUrl = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <script is:inline>
+      (() => {
+        try {
+          const themeKey = "political-report-card-theme";
+          const stored = localStorage.getItem(themeKey);
+          const systemPrefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          const theme =
+            stored === "light" || stored === "dark"
+              ? stored
+              : systemPrefersDark
+                ? "dark"
+                : "light";
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        } catch {
+          document.documentElement.dataset.theme = "light";
+          document.documentElement.style.colorScheme = "light";
+        }
+      })();
+    </script>
   </head>
-  <body>
+  <body class="app-shell">
     <div class="relative flex min-h-screen flex-col">
-      <header class="border-b border-brand-ink/10 bg-white/75 backdrop-blur">
+      <header class="site-header">
         <div
-          class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+          class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8"
         >
-          <a href={baseUrl} class="font-semibold tracking-tight text-brand-ink">
+          <a href={baseUrl} class="site-header__brand">
             Political Report Card
           </a>
-          <nav class="flex items-center gap-4 text-sm text-brand-slate">
-            <a href={baseUrl}>Home</a>
-            <a href={`${baseUrl}state/TN`}>Tamil Nadu</a>
-            <a href={`${baseUrl}constituency/TN-177`}>Peravurani</a>
-          </nav>
+          <div class="flex items-center gap-3">
+            <nav class="site-nav" aria-label="Primary">
+              <a href={baseUrl}>Home</a>
+              <a href={withBase(baseUrl, toStatePath("TN"))}>Tamil Nadu</a>
+              <a href={withBase(baseUrl, toStatePath("WB"))}>West Bengal</a>
+              <a href={withBase(baseUrl, toConstituencyPath("TN-177"))}
+                >Peravurani</a
+              >
+            </nav>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
       <main class="flex-1">
@@ -44,5 +74,22 @@ const baseUrl = import.meta.env.BASE_URL;
       </main>
       <Footer />
     </div>
+    <script is:inline>
+      const focusRouteHeading = () => {
+        const heading = document.querySelector("[data-route-heading='true']");
+        if (!(heading instanceof HTMLElement)) {
+          return;
+        }
+        requestAnimationFrame(() => heading.focus({ preventScroll: true }));
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", focusRouteHeading, {
+          once: true,
+        });
+      } else {
+        focusRouteHeading();
+      }
+    </script>
   </body>
 </html>

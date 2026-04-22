@@ -1,0 +1,92 @@
+[
+  {
+    "code": "AS",
+    "schedule_status": "officially_announced",
+    "official_date": "2026-04-09",
+    "months_to_election": 0,
+    "status_label": "Poll held on 9 Apr 2026.",
+    "_meta": {
+      "source_note": "States not listed in this file fall back to a pending bucket until the ECI announces a schedule.",
+      "sources": [
+        {
+          "url": "https://x.com/ECISVEEP/status/1900850458147588178",
+          "name": "ECI schedule announcement for 2026 assembly elections",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "KL",
+    "schedule_status": "officially_announced",
+    "official_date": "2026-04-09",
+    "months_to_election": 0,
+    "status_label": "Poll held on 9 Apr 2026.",
+    "_meta": {
+      "source_note": "States not listed in this file fall back to a pending bucket until the ECI announces a schedule.",
+      "sources": [
+        {
+          "url": "https://x.com/ECISVEEP/status/1900850458147588178",
+          "name": "ECI schedule announcement for 2026 assembly elections",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "PY",
+    "schedule_status": "officially_announced",
+    "official_date": "2026-04-09",
+    "months_to_election": 0,
+    "status_label": "Poll held on 9 Apr 2026.",
+    "_meta": {
+      "source_note": "States not listed in this file fall back to a pending bucket until the ECI announces a schedule.",
+      "sources": [
+        {
+          "url": "https://x.com/ECISVEEP/status/1900850458147588178",
+          "name": "ECI schedule announcement for 2026 assembly elections",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "TN",
+    "schedule_status": "officially_announced",
+    "official_date": "2026-04-23",
+    "months_to_election": 0,
+    "status_label": "Poll on 23 Apr 2026.",
+    "_meta": {
+      "source_note": "States not listed in this file fall back to a pending bucket until the ECI announces a schedule.",
+      "sources": [
+        {
+          "url": "https://x.com/ECISVEEP/status/1900850458147588178",
+          "name": "ECI schedule announcement for 2026 assembly elections",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  },
+  {
+    "code": "WB",
+    "schedule_status": "officially_announced",
+    "official_date": "2026-04-23",
+    "months_to_election": 0,
+    "status_label": "Phase 1 on 23 Apr 2026 and phase 2 on 29 Apr 2026.",
+    "_meta": {
+      "source_note": "States not listed in this file fall back to a pending bucket until the ECI announces a schedule.",
+      "sources": [
+        {
+          "url": "https://x.com/ECISVEEP/status/1900850458147588178",
+          "name": "ECI schedule announcement for 2026 assembly elections",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        },
+        {
+          "url": "https://x.com/ECISVEEP/status/1900851874161272932",
+          "name": "ECI West Bengal phase schedule for 2026 assembly elections",
+          "retrieved_at": "2026-04-23T02:15:00+05:30"
+        }
+      ]
+    }
+  }
+]

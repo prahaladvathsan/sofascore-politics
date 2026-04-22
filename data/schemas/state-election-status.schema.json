@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://political-report-card.example/data/schemas/state-election-status.schema.json",
+  "title": "State Election Status Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "code",
+    "schedule_status",
+    "official_date",
+    "months_to_election",
+    "status_label",
+    "_meta"
+  ],
+  "properties": {
+    "code": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "schedule_status": {
+      "type": "string",
+      "enum": ["officially_announced"]
+    },
+    "official_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "months_to_election": {
+      "type": "number",
+      "minimum": 0
+    },
+    "status_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "_meta": {
+      "$ref": "./common.schema.json#/definitions/meta"
+    }
+  }
+}

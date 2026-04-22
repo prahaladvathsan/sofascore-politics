@@ -1,119 +1,124 @@
 ---
+import StateMapExperience from "../../components/Map/StateMapExperience.tsx";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import {
-  getCandidate,
-  getParty,
-  getState,
-  listConstituenciesByState,
-  listStateCodes,
+  getSeedState,
+  getStateElectionStatus,
+  getStateNavigation,
+  listStateNavigationRecords,
 } from "../../lib/data";
+import { toConstituencyPath, toStateCode, withBase } from "../../lib/routing";
+import { buildConstituencyPanels } from "../../lib/view-models";
 
 export function getStaticPaths() {
-  return listStateCodes().map((code) => ({
-    params: { code },
-  }));
+  return listStateNavigationRecords()
+    .filter((state) => state.has_assembly)
+    .map((state) => ({
+      params: { code: state.code.toLowerCase() },
+    }));
 }
 
 const baseUrl = import.meta.env.BASE_URL;
-const code = Astro.params.code ?? "TN";
-const state = getState(code);
-const constituencies = listConstituenciesByState(code).map((constituency) => ({
-  constituency,
-  candidate: getCandidate(constituency.current_mla_id),
-  party: getParty(constituency.current_party_id),
-}));
+const code = toStateCode(Astro.params.code ?? "tn");
+const state = getStateNavigation(code);
+if (!state) {
+  throw new Error(`Unknown state route: ${code}`);
+}
+const seedState = getSeedState(code);
+const electionStatus = getStateElectionStatus(code);
+const panels =
+  state.state_route_mode === "map" ? buildConstituencyPanels(code) : [];
+const geometryPath = `${baseUrl}data/geo/optimized/${code.toLowerCase()}-assembly.topojson`;
+const statusLabel =
+  electionStatus?.status_label ?? "Awaiting official ECI schedule.";
 ---
 
 <BaseLayout
   title={`${state.name} | Political Report Card`}
-  description={`Seed constituency cards for ${state.name}.`}
+  description={`State drilldown for ${state.name}.`}
 >
   <section class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-    <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-      <div
-        class="rounded-[2rem] border border-brand-ink/10 bg-white/80 p-6 shadow-card"
-      >
-        <p class="text-sm uppercase tracking-[0.2em] text-brand-saffron">
-          State drilldown
-        </p>
-        <h1 class="mt-3 text-4xl font-semibold text-brand-ink">{state.name}</h1>
-        <p class="mt-4 text-brand-slate">
-          Phase 1 seeds {state.seed_constituency_ids.length} constituencies out of
-          {state.assembly_seats_total} total assembly seats.
-        </p>
-        <dl class="mt-6 grid gap-3 text-sm text-brand-slate">
-          <div
-            class="flex items-center justify-between gap-3 rounded-2xl bg-brand-sand/70 px-4 py-3"
-          >
-            <dt>Code</dt>
-            <dd class="font-medium text-brand-ink">{state.code}</dd>
+    <div class="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+      <aside class="editorial-panel">
+        <p class="eyebrow">State drilldown</p>
+        <h1 class="panel-title" tabindex="-1" data-route-heading="true">
+          {state.name}
+        </h1>
+        <p class="panel-copy">{statusLabel}</p>
+
+        <div class="detail-grid">
+          <div class="detail-card">
+            <dt>Route mode</dt>
+            <dd>{state.state_route_mode === "map" ? "Mapped" : "Shell"}</dd>
           </div>
-          <div
-            class="flex items-center justify-between gap-3 rounded-2xl bg-brand-sand/70 px-4 py-3"
-          >
+          <div class="detail-card">
             <dt>Seeded seats</dt>
-            <dd class="font-medium text-brand-ink">
-              {state.seed_constituency_ids.length}
-            </dd>
+            <dd>{seedState?.seed_constituency_ids.length ?? 0}</dd>
           </div>
-          <div
-            class="flex items-center justify-between gap-3 rounded-2xl bg-brand-sand/70 px-4 py-3"
-          >
+          <div class="detail-card">
+            <dt>Mapped seats</dt>
+            <dd>{panels.length || "Coming soon"}</dd>
+          </div>
+          <div class="detail-card">
             <dt>Storage model</dt>
-            <dd class="font-medium text-brand-ink">Static JSON only</dd>
+            <dd>Static JSON only</dd>
           </div>
-        </dl>
-      </div>
+        </div>
+
+        <div class="mt-6 space-y-3">
+          <p class="eyebrow">Seed overlay</p>
+          {
+            seedState ? (
+              seedState.seed_constituency_ids.map((id) => (
+                <a
+                  href={withBase(baseUrl, toConstituencyPath(id))}
+                  class="shell-card block"
+                >
+                  <p class="font-semibold">{id.toLowerCase()}</p>
+                  <p class="shell-copy">
+                    Seed constituency page and MLA overlay.
+                  </p>
+                </a>
+              ))
+            ) : (
+              <div class="shell-card">
+                <p class="font-semibold">Candidate overlay pending</p>
+                <p class="shell-copy">
+                  This state route is live at the geometry layer, but it does
+                  not yet ship seeded MLA or candidate JSON.
+                </p>
+              </div>
+            )
+          }
+        </div>
+      </aside>
 
       <div class="space-y-4">
         {
-          constituencies.map(({ constituency, candidate, party }) => (
-            <article class="rounded-[2rem] border border-brand-ink/10 bg-white/85 p-6 shadow-card">
-              <div class="flex flex-wrap items-start justify-between gap-4">
-                <div>
-                  <p class="text-sm uppercase tracking-[0.18em] text-brand-saffron">
-                    Seat {constituency.number}
-                  </p>
-                  <h2 class="mt-2 text-2xl font-semibold text-brand-ink">
-                    {constituency.name}
-                  </h2>
-                  <p class="mt-2 text-brand-slate">{constituency.summary}</p>
-                </div>
-                <span
-                  class="rounded-full px-3 py-1 text-xs font-medium text-white"
-                  style={`background:${party.color};`}
-                >
-                  {party.short_name}
-                </span>
-              </div>
-              <dl class="mt-5 grid gap-3 text-sm text-brand-slate sm:grid-cols-3">
-                <div class="rounded-2xl bg-brand-sand/70 px-4 py-3">
-                  <dt>District</dt>
-                  <dd class="mt-1 font-medium text-brand-ink">
-                    {constituency.district}
-                  </dd>
-                </div>
-                <div class="rounded-2xl bg-brand-sand/70 px-4 py-3">
-                  <dt>Reservation</dt>
-                  <dd class="mt-1 font-medium text-brand-ink">
-                    {constituency.reservation}
-                  </dd>
-                </div>
-                <div class="rounded-2xl bg-brand-sand/70 px-4 py-3">
-                  <dt>Current MLA</dt>
-                  <dd class="mt-1 font-medium text-brand-ink">
-                    {candidate.name}
-                  </dd>
-                </div>
-              </dl>
-              <a
-                href={`${baseUrl}constituency/${constituency.id}`}
-                class="mt-5 inline-flex rounded-full border border-brand-ink/15 bg-white px-4 py-2 text-sm font-medium text-brand-ink transition hover:border-brand-saffron/30"
-              >
-                Open constituency card
-              </a>
-            </article>
-          ))
+          state.state_route_mode === "map" ? (
+            <StateMapExperience
+              client:load
+              basePath={baseUrl}
+              geometryPath={geometryPath}
+              stateCode={state.code}
+              stateName={state.name}
+              statusLabel={statusLabel}
+              mode="browse"
+              panels={panels}
+            />
+          ) : (
+            <div class="editorial-panel">
+              <p class="eyebrow">Constituency map coming soon</p>
+              <h2 class="panel-title">
+                This route is live before the polygons are.
+              </h2>
+              <p class="panel-copy">
+                The national map already links here because the assembly route
+                is canonical, but the constituency geometry bundle is still
+                limited to Tamil Nadu and West Bengal in this MVP.
+              </p>
+            </div>
+          )
         }
       </div>
     </div>

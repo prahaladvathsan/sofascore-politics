@@ -62,7 +62,7 @@ function validateState(filePath, record) {
 
 function validateConstituency(filePath, record) {
   assert(
-    typeof record.id === "string" && record.id.startsWith("TN-"),
+    typeof record.id === "string" && /^[A-Z]{2}-\d{3}$/.test(record.id),
     `${filePath}: invalid constituency id`,
   );
   assert(
@@ -116,6 +116,84 @@ function validateManifestoPoint(filePath, record) {
   assertSources(record._meta, filePath);
 }
 
+function validateStateNavigation(filePath, records) {
+  assert(
+    Array.isArray(records),
+    `${filePath}: navigation file must be an array`,
+  );
+  for (const [index, record] of records.entries()) {
+    assert(
+      typeof record.code === "string" && /^[A-Z]{2}$/.test(record.code),
+      `${filePath}: record ${index} missing code`,
+    );
+    assert(
+      typeof record.has_assembly === "boolean",
+      `${filePath}: record ${index} missing has_assembly`,
+    );
+    assert(
+      ["map", "shell", "not_applicable"].includes(record.state_route_mode),
+      `${filePath}: record ${index} has invalid state_route_mode`,
+    );
+    assert(
+      record.theme &&
+        typeof record.theme.primary === "string" &&
+        record.theme.primary.startsWith("#"),
+      `${filePath}: record ${index} missing theme.primary`,
+    );
+    assertSources(record._meta, `${filePath} record ${index}`);
+  }
+}
+
+function validateElectionStatuses(filePath, records) {
+  assert(
+    Array.isArray(records),
+    `${filePath}: election status file must be an array`,
+  );
+  for (const [index, record] of records.entries()) {
+    assert(
+      typeof record.code === "string" && /^[A-Z]{2}$/.test(record.code),
+      `${filePath}: record ${index} missing code`,
+    );
+    assert(
+      record.schedule_status === "officially_announced",
+      `${filePath}: record ${index} must be officially_announced`,
+    );
+    assert(
+      typeof record.official_date === "string" &&
+        !Number.isNaN(Date.parse(record.official_date)),
+      `${filePath}: record ${index} has invalid official_date`,
+    );
+    assert(
+      typeof record.status_label === "string" && record.status_label.length > 0,
+      `${filePath}: record ${index} missing status_label`,
+    );
+    assertSources(record._meta, `${filePath} record ${index}`);
+  }
+}
+
+function validateConstituencyMapRecords(filePath, records) {
+  assert(
+    Array.isArray(records),
+    `${filePath}: constituency map file must be an array`,
+  );
+  for (const [index, record] of records.entries()) {
+    assert(
+      typeof record.id === "string" && /^[A-Z]{2}-\d{3}$/.test(record.id),
+      `${filePath}: record ${index} has invalid id`,
+    );
+    assert(
+      typeof record.slug === "string" &&
+        record.slug === record.slug.toLowerCase(),
+      `${filePath}: record ${index} must use a lowercase slug`,
+    );
+    assert(
+      typeof record.feature_key === "string" && record.feature_key.length > 0,
+      `${filePath}: record ${index} missing feature_key`,
+    );
+    assertSources(record._meta, `${filePath} record ${index}`);
+  }
+}
+
 const schemaDir = resolve(DATA_DIR, "schemas");
 assert(
   existsSync(schemaDir) && statSync(schemaDir).isDirectory(),
@@ -143,6 +221,12 @@ for (const filePath of files) {
     validateNewsItem(filePath, record);
   } else if (filePath.includes(resolve("data", "manifestos"))) {
     validateManifestoPoint(filePath, record);
+  } else if (filePath.includes(resolve("data", "navigation"))) {
+    validateStateNavigation(filePath, record);
+  } else if (filePath.includes(resolve("data", "elections"))) {
+    validateElectionStatuses(filePath, record);
+  } else if (filePath.includes(resolve("data", "maps"))) {
+    validateConstituencyMapRecords(filePath, record);
   }
 }
 

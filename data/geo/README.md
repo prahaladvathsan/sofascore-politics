@@ -1,9 +1,24 @@
 # Map Data
 
-`india.topojson` is a checked-in India TopoJSON asset used for the phase-1 homepage map shell.
+This repository now keeps two map layers under `data/geo/`:
 
-- Source: [India Maps Data](https://github.com/udit-001/india-maps-data) via jsDelivr
-- Retrieved from: `https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@ef25ebc/topojson/india.json`
-- Retrieved at: `2026-04-22T00:00:00+05:30`
+- `source/`: committed Datameet source snapshots at commit `b3fbbde595310b397a55d718e0958ce249a4fa1f`
+- `optimized/`: build-time simplified and quantized TopoJSON served by the client
 
-Future phases can replace this file with a more curated or officially sourced geometry set without changing the page contract.
+Current optimized outputs:
+
+- `optimized/india-states.topojson`
+- `optimized/tn-assembly.topojson`
+- `optimized/wb-assembly.topojson`
+
+Build guarantees:
+
+- national TopoJSON stays under `150KB`
+- each per-state constituency TopoJSON stays under `400KB`
+- `public/data/` publishes only the optimized geometry, not the raw source snapshot
+
+Source notes:
+
+- National state and UT boundaries come from Datameet `States/Admin2.*`
+- MVP constituency boundaries come from Datameet `website/docs/data/geojson/ac.geojson`, filtered to Tamil Nadu and West Bengal
+- Datameet notes these layers are released under `CC BY 2.5 India` and include known caveats around historical delimitations in some regions

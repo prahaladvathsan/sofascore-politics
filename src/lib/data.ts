@@ -1,11 +1,14 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import type {
   CandidateRecord,
+  ConstituencyMapRecord,
   ConstituencyRecord,
   PartyRecord,
+  StateElectionStatusRecord,
+  StateNavigationRecord,
   StateRecord,
 } from "../types/data";
 
@@ -17,7 +20,12 @@ function readJsonFile<T>(...segments: string[]): T {
 }
 
 function listJsonFiles(...segments: string[]): string[] {
-  return readdirSync(resolve(dataRoot, ...segments))
+  const directoryPath = resolve(dataRoot, ...segments);
+  if (!existsSync(directoryPath)) {
+    return [];
+  }
+
+  return readdirSync(directoryPath)
     .filter((fileName) => fileName.endsWith(".json"))
     .sort();
 }
@@ -29,6 +37,15 @@ export function listStateCodes(): string[] {
 }
 
 export function getState(code: string): StateRecord {
+  return readJsonFile<StateRecord>("states", `${code}.json`);
+}
+
+export function getSeedState(code: string): StateRecord | null {
+  const filePath = resolve(dataRoot, "states", `${code}.json`);
+  if (!existsSync(filePath)) {
+    return null;
+  }
+
   return readJsonFile<StateRecord>("states", `${code}.json`);
 }
 
@@ -57,10 +74,103 @@ export function getConstituency(id: string): ConstituencyRecord {
   );
 }
 
+export function getSeedConstituency(id: string): ConstituencyRecord | null {
+  const [stateCode] = id.split("-");
+  const filePath = resolve(dataRoot, "constituencies", stateCode, `${id}.json`);
+  if (!existsSync(filePath)) {
+    return null;
+  }
+
+  return readJsonFile<ConstituencyRecord>(
+    "constituencies",
+    stateCode,
+    `${id}.json`,
+  );
+}
+
 export function getCandidate(id: string): CandidateRecord {
+  return readJsonFile<CandidateRecord>("candidates", `${id}.json`);
+}
+
+export function getSeedCandidate(id: string): CandidateRecord | null {
+  const filePath = resolve(dataRoot, "candidates", `${id}.json`);
+  if (!existsSync(filePath)) {
+    return null;
+  }
+
   return readJsonFile<CandidateRecord>("candidates", `${id}.json`);
 }
 
 export function getParty(id: string): PartyRecord {
   return readJsonFile<PartyRecord>("parties", `${id}.json`);
+}
+
+export function getSeedParty(id: string): PartyRecord | null {
+  const filePath = resolve(dataRoot, "parties", `${id}.json`);
+  if (!existsSync(filePath)) {
+    return null;
+  }
+
+  return readJsonFile<PartyRecord>("parties", `${id}.json`);
+}
+
+export function listCandidatesByConstituency(
+  constituencyId: string,
+): CandidateRecord[] {
+  return listJsonFiles("candidates")
+    .map((fileName) => readJsonFile<CandidateRecord>("candidates", fileName))
+    .filter((candidate) => candidate.constituency_id === constituencyId)
+    .sort((left, right) => Number(right.incumbent) - Number(left.incumbent));
+}
+
+export function listStateNavigationRecords(): StateNavigationRecord[] {
+  return readJsonFile<StateNavigationRecord[]>("navigation", "states.json");
+}
+
+export function getStateNavigation(
+  codeOrSlug: string,
+): StateNavigationRecord | undefined {
+  const normalizedCode = codeOrSlug.toUpperCase();
+  return listStateNavigationRecords().find(
+    (record) => record.code === normalizedCode,
+  );
+}
+
+export function listStateElectionStatuses(): StateElectionStatusRecord[] {
+  return readJsonFile<StateElectionStatusRecord[]>(
+    "elections",
+    "state-election-status.json",
+  );
+}
+
+export function getStateElectionStatus(
+  codeOrSlug: string,
+): StateElectionStatusRecord | undefined {
+  const normalizedCode = codeOrSlug.toUpperCase();
+  return listStateElectionStatuses().find(
+    (record) => record.code === normalizedCode,
+  );
+}
+
+export function listConstituencyMapRecords(): ConstituencyMapRecord[] {
+  return readJsonFile<ConstituencyMapRecord[]>("maps", "constituencies.json");
+}
+
+export function listConstituencyMapRecordsByState(
+  codeOrSlug: string,
+): ConstituencyMapRecord[] {
+  const normalizedCode = codeOrSlug.toUpperCase();
+  return listConstituencyMapRecords()
+    .filter((record) => record.state_code === normalizedCode)
+    .sort((left, right) => left.number - right.number);
+}
+
+export function getConstituencyMapRecordBySlug(
+  slugOrId: string,
+): ConstituencyMapRecord | undefined {
+  const normalizedSlug = slugOrId.toLowerCase();
+  return listConstituencyMapRecords().find(
+    (record) =>
+      record.slug === normalizedSlug || record.id === slugOrId.toUpperCase(),
+  );
 }

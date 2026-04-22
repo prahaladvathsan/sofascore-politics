@@ -1,0 +1,56 @@
+<button
+  type="button"
+  class="theme-toggle"
+  data-theme-toggle
+  aria-label="Toggle color theme"
+>
+  <span class="theme-toggle__label theme-toggle__label--sun" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+    >
+      <circle cx="12" cy="12" r="4"></circle>
+      <path
+        d="M12 2v2.5M12 19.5V22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77"
+      ></path>
+    </svg>
+  </span>
+  <span class="theme-toggle__thumb" aria-hidden="true"></span>
+  <span
+    class="theme-toggle__label theme-toggle__label--moon"
+    aria-hidden="true"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+    >
+      <path d="M20 15.5A8.5 8.5 0 1 1 8.5 4a6.5 6.5 0 0 0 11.5 11.5Z"></path>
+    </svg>
+  </span>
+</button>
+
+<script is:inline>
+  const themeKey = "political-report-card-theme";
+  const root = document.documentElement;
+  const applyTheme = (theme) => {
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+    try {
+      localStorage.setItem(themeKey, theme);
+    } catch {
+      return;
+    }
+  };
+
+  const button = document.querySelector("[data-theme-toggle]");
+  if (button instanceof HTMLButtonElement) {
+    button.addEventListener("click", () => {
+      const currentTheme = root.dataset.theme === "dark" ? "dark" : "light";
+      applyTheme(currentTheme === "dark" ? "light" : "dark");
+    });
+  }
+</script>

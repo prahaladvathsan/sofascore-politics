@@ -9,6 +9,11 @@ export interface DataMeta {
   sources: SourceReference[];
 }
 
+export interface ThemeRecord {
+  primary: string;
+  accent: string;
+}
+
 export interface StateRecord {
   id: string;
   code: string;
@@ -55,6 +60,38 @@ export interface PartyRecord {
   short_name: string;
   color: string;
   official_url: string;
+  _meta: DataMeta;
+}
+
+export type StateRouteMode = "map" | "shell" | "not_applicable";
+
+export interface StateNavigationRecord {
+  code: string;
+  name: string;
+  type: "state" | "union_territory";
+  has_assembly: boolean;
+  state_route_mode: StateRouteMode;
+  theme: ThemeRecord;
+  _meta: DataMeta;
+}
+
+export interface StateElectionStatusRecord {
+  code: string;
+  schedule_status: "officially_announced";
+  official_date: string;
+  months_to_election: number;
+  status_label: string;
+  _meta: DataMeta;
+}
+
+export interface ConstituencyMapRecord {
+  id: string;
+  state_code: string;
+  number: number;
+  name: string;
+  district?: string;
+  feature_key: string;
+  slug: string;
   _meta: DataMeta;
 }
 

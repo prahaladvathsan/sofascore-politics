@@ -2,5 +2,6 @@ dist/
 node_modules/
 public/data/
 .astro/
+.tmp/
 .DS_Store
 Thumbs.db

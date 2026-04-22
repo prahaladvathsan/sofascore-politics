@@ -12,6 +12,8 @@ This repository keeps canonical political data under the root `data/` directory 
 
 - `data/schemas/` defines the draft-07 schemas for public JSON payloads.
 - `data/states/`, `data/constituencies/`, `data/candidates/`, and `data/parties/` are the canonical seed inputs for the Astro pages.
+- `data/navigation/states.json`, `data/elections/state-election-status.json`, and `data/maps/constituencies.json` are generated public indexes that drive the national, state, and constituency drilldowns.
+- `data/geo/source/` stores committed Datameet source snapshots; `data/geo/optimized/` stores the simplified and quantized TopoJSON served to the client.
 - `data/news/` and `data/manifestos/` are reserved for later pipeline outputs and tracker data.
 
 ## Known future task

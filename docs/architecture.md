@@ -12,7 +12,13 @@ repo/
 │   ├── news-ingest.yml
 │   └── affidavits-refresh.yml
 ├── data/
-│   ├── geo/india.topojson
+│   ├── geo/
+│   │   ├── source/
+│   │   ├── optimized/
+│   │   └── README.md
+│   ├── navigation/states.json
+│   ├── elections/state-election-status.json
+│   ├── maps/constituencies.json
 │   ├── schemas/
 │   ├── states/TN.json
 │   ├── constituencies/TN/*.json
@@ -27,10 +33,13 @@ repo/
 │   ├── tag_entities.py
 │   └── build_indexes.py
 ├── scripts/
+│   ├── build-geo.mjs
+│   ├── check-homepage-budget.mjs
 │   ├── sync-data.mjs
 │   └── validate-data.mjs
 ├── src/
-│   ├── components/Map/
+│   ├── components/
+│   │   └── Map/
 │   ├── layouts/
 │   ├── lib/
 │   ├── pages/
@@ -50,5 +59,8 @@ repo/
 
 - The original conceptual tree used `src/app/...`; in Astro, the equivalent public routing surface lives under `src/pages/...`.
 - Canonical JSON stays in the root `data/` directory. A small sync script mirrors it into `public/data/` before local dev, checks, and production builds so the site can fetch static JSON directly.
-- React is only used for the interactive map island. The content pages themselves render statically from local JSON during build time.
-- Pipeline scripts and non-deploy workflows are placeholders in phase 1 so the architecture is visible without implementing ingestion logic too early.
+- React is only used for the interactive map islands on `/`, `/state/[code]`, and `/constituency/[id]`. The rest of the page content renders statically from local JSON during build time.
+- Lowercase URLs are canonical. Static compatibility shims preserve the already-shipped uppercase phase-1 links.
+- `scripts/build-geo.mjs` is the geometry build gate. It regenerates the navigation indexes, simplifies and quantizes the committed Datameet source snapshot, and fails the build if the national or per-state TopoJSON budgets are exceeded.
+- `scripts/check-homepage-budget.mjs` enforces the homepage JS gzip budget after build, and Lighthouse CI checks the homepage LCP budget in CI.
+- Pipeline scripts and non-deploy workflows remain placeholders in this phase so the architecture is visible without implementing ingestion logic too early.
