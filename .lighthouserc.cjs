@@ -6,6 +6,17 @@ const basePath = `/${repoName}/`;
 const chromeProfileDir =
   process.env.LHCI_CHROME_PROFILE_DIR ??
   `${process.cwd()}\\.tmp\\lhci-chrome-profile`;
+const chromeFlags = [
+  `--user-data-dir=${chromeProfileDir}`,
+  "--headless=new",
+  "--no-first-run",
+  "--no-default-browser-check",
+  process.platform === "linux" ? "--no-sandbox" : "",
+  process.platform === "linux" ? "--disable-dev-shm-usage" : "",
+  process.platform === "linux" ? "--disable-gpu" : "",
+]
+  .filter(Boolean)
+  .join(" ");
 
 module.exports = {
   ci: {
@@ -24,7 +35,7 @@ module.exports = {
           deviceScaleFactor: 2,
           disabled: false,
         },
-        chromeFlags: [`--user-data-dir=${chromeProfileDir}`],
+        chromeFlags,
       },
     },
     assert: {
