@@ -1,0 +1,16 @@
+{
+  "id": "BRS",
+  "name": "Bharat Rashtra Samithi",
+  "short_name": "BRS",
+  "color": "#f06292",
+  "official_url": "https://brsparty.com/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Bharat_Rashtra_Samithi",
+        "name": "Wikipedia - Bharat Rashtra Samithi",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

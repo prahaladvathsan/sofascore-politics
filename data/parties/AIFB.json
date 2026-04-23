@@ -1,0 +1,16 @@
+{
+  "id": "AIFB",
+  "name": "All India Forward Bloc",
+  "short_name": "AIFB",
+  "color": "#c62828",
+  "official_url": "https://allindiaforwardbloc.org/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/All_India_Forward_Bloc",
+        "name": "Wikipedia - All India Forward Bloc",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

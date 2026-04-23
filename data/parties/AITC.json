@@ -1,0 +1,16 @@
+{
+  "id": "AITC",
+  "name": "All India Trinamool Congress",
+  "short_name": "AITC",
+  "color": "#22c55e",
+  "official_url": "https://aitcofficial.org/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://aitcofficial.org/",
+        "name": "All India Trinamool Congress",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

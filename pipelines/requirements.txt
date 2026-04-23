@@ -1,0 +1,9 @@
+# Approved Python dependencies for Phase 3 pipelines.
+# Do not add packages beyond this list without approval.
+
+requests
+beautifulsoup4
+lxml
+pydantic>=2,<3
+tenacity
+python-dateutil

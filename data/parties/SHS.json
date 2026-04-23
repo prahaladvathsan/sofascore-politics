@@ -1,0 +1,16 @@
+{
+  "id": "SHS",
+  "name": "Shiv Sena",
+  "short_name": "SHS",
+  "color": "#f57c00",
+  "official_url": "https://www.shivsena.in/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Shiv_Sena",
+        "name": "Wikipedia - Shiv Sena",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

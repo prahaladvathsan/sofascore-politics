@@ -1,0 +1,16 @@
+{
+  "id": "IND",
+  "name": "Independent",
+  "short_name": "IND",
+  "color": "#6b7280",
+  "official_url": "https://en.wikipedia.org/wiki/Independent_politician",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Independent_politician",
+        "name": "Wikipedia - Independent politician",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "YSRCP",
+  "name": "YSR Congress Party",
+  "short_name": "YSRCP",
+  "color": "#1e88e5",
+  "official_url": "https://www.ysrcongress.com/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/YSR_Congress_Party",
+        "name": "Wikipedia - YSR Congress Party",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

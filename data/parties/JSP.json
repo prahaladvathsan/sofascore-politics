@@ -1,0 +1,16 @@
+{
+  "id": "JSP",
+  "name": "Janasena Party",
+  "short_name": "JSP",
+  "color": "#c62828",
+  "official_url": "https://janasenaparty.org/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Janasena_Party",
+        "name": "Wikipedia - Janasena Party",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

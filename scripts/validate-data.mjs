@@ -1,5 +1,5 @@
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
-import { resolve } from "node:path";
+import { basename, dirname, resolve } from "node:path";
 
 const DATA_DIR = resolve("data");
 
@@ -86,6 +86,52 @@ function validateCandidate(filePath, record) {
     `${filePath}: profile_urls must be an array`,
   );
   assertSources(record._meta, filePath);
+}
+
+function validateCandidateCollection(filePath, records) {
+  assert(
+    Array.isArray(records),
+    `${filePath}: candidate collection file must be an array`,
+  );
+
+  for (const [index, record] of records.entries()) {
+    assert(
+      record && typeof record === "object",
+      `${filePath}: record ${index} must be an object`,
+    );
+    assert(
+      typeof record.id === "string",
+      `${filePath}: record ${index} missing id`,
+    );
+    assert(
+      typeof record.party_id === "string" && record.party_id.length > 0,
+      `${filePath}: record ${index} missing party_id`,
+    );
+    assert(
+      typeof record.constituency_id === "string" &&
+        /^[A-Z]{2}-\d{3}$/.test(record.constituency_id),
+      `${filePath}: record ${index} has invalid constituency_id`,
+    );
+    assert(
+      Array.isArray(record.profile_urls),
+      `${filePath}: record ${index} profile_urls must be an array`,
+    );
+    for (const [urlIndex, profileUrl] of record.profile_urls.entries()) {
+      assert(
+        profileUrl && typeof profileUrl === "object",
+        `${filePath}: record ${index} profile_urls[${urlIndex}] must be an object`,
+      );
+      assert(
+        typeof profileUrl.url === "string" && profileUrl.url.startsWith("http"),
+        `${filePath}: record ${index} profile_urls[${urlIndex}] missing url`,
+      );
+      assert(
+        typeof profileUrl.name === "string" && profileUrl.name.length > 0,
+        `${filePath}: record ${index} profile_urls[${urlIndex}] missing name`,
+      );
+    }
+    assertSources(record._meta, `${filePath} record ${index}`);
+  }
 }
 
 function validateParty(filePath, record) {
@@ -194,7 +240,53 @@ function validateConstituencyMapRecords(filePath, records) {
   }
 }
 
+function validateQualityReport(filePath, record) {
+  assert(
+    typeof record.pipeline === "string" && record.pipeline.length > 0,
+    `${filePath}: pipeline is required`,
+  );
+  assert(
+    typeof record.started_at === "string" &&
+      !Number.isNaN(Date.parse(record.started_at)),
+    `${filePath}: started_at must be a valid ISO timestamp`,
+  );
+  assert(
+    typeof record.finished_at === "string" &&
+      !Number.isNaN(Date.parse(record.finished_at)),
+    `${filePath}: finished_at must be a valid ISO timestamp`,
+  );
+  assert(
+    record.counts && typeof record.counts === "object",
+    `${filePath}: counts object is required`,
+  );
+  for (const field of ["fetched", "parsed", "written", "skipped"]) {
+    assert(
+      Number.isInteger(record.counts[field]),
+      `${filePath}: counts.${field} must be an integer`,
+    );
+  }
+  assert(
+    Array.isArray(record.failures),
+    `${filePath}: failures must be an array`,
+  );
+  assert(
+    Array.isArray(record.review_queue),
+    `${filePath}: review_queue must be an array`,
+  );
+  assert(
+    Array.isArray(record.sources_touched),
+    `${filePath}: sources_touched must be an array`,
+  );
+  assert(
+    record.latencies_ms_by_source &&
+      typeof record.latencies_ms_by_source === "object" &&
+      !Array.isArray(record.latencies_ms_by_source),
+    `${filePath}: latencies_ms_by_source must be an object`,
+  );
+}
+
 const schemaDir = resolve(DATA_DIR, "schemas");
+const candidateRoot = resolve("data", "candidates");
 assert(
   existsSync(schemaDir) && statSync(schemaDir).isDirectory(),
   "data/schemas is required",
@@ -214,9 +306,21 @@ for (const filePath of files) {
   } else if (filePath.includes(resolve("data", "constituencies"))) {
     validateConstituency(filePath, record);
   } else if (filePath.includes(resolve("data", "candidates"))) {
-    validateCandidate(filePath, record);
+    if (dirname(filePath) === candidateRoot) {
+      validateCandidate(filePath, record);
+    } else {
+      validateCandidateCollection(filePath, record);
+    }
+  } else if (filePath.includes(resolve("data", "incumbents"))) {
+    validateCandidateCollection(filePath, record);
   } else if (filePath.includes(resolve("data", "parties"))) {
-    validateParty(filePath, record);
+    if (!basename(filePath).startsWith("_")) {
+      validateParty(filePath, record);
+    }
+  } else if (filePath.includes(resolve("data", "quality-reports"))) {
+    if (basename(filePath).startsWith("ingest-")) {
+      validateQualityReport(filePath, record);
+    }
   } else if (filePath.includes(resolve("data", "news"))) {
     validateNewsItem(filePath, record);
   } else if (filePath.includes(resolve("data", "manifestos"))) {

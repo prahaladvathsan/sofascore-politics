@@ -1,0 +1,16 @@
+{
+  "id": "IUML",
+  "name": "Indian Union Muslim League",
+  "short_name": "IUML",
+  "color": "#2e7d32",
+  "official_url": "https://iumlkerala.org/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Indian_Union_Muslim_League",
+        "name": "Wikipedia - Indian Union Muslim League",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

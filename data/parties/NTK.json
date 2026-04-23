@@ -1,0 +1,16 @@
+{
+  "id": "NTK",
+  "name": "Naam Tamilar Katchi",
+  "short_name": "NTK",
+  "color": "#dc2626",
+  "official_url": "https://www.naamtamilar.org/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.naamtamilar.org/",
+        "name": "Naam Tamilar Katchi",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

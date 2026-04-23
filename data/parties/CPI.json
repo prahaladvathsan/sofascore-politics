@@ -1,0 +1,16 @@
+{
+  "id": "CPI",
+  "name": "Communist Party of India",
+  "short_name": "CPI",
+  "color": "#c62828",
+  "official_url": "https://communistparty.in/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Communist_Party_of_India",
+        "name": "Wikipedia - Communist Party of India",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

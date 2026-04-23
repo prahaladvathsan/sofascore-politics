@@ -1,0 +1,16 @@
+{
+  "id": "CPM",
+  "name": "Communist Party of India (Marxist)",
+  "short_name": "CPI(M)",
+  "color": "#d32f2f",
+  "official_url": "https://cpim.org/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Communist_Party_of_India_(Marxist)",
+        "name": "Wikipedia - Communist Party of India (Marxist)",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

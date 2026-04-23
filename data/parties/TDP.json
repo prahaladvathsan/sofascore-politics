@@ -1,0 +1,16 @@
+{
+  "id": "TDP",
+  "name": "Telugu Desam Party",
+  "short_name": "TDP",
+  "color": "#fbc02d",
+  "official_url": "https://www.telugudesamparty.org/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Telugu_Desam_Party",
+        "name": "Wikipedia - Telugu Desam Party",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}

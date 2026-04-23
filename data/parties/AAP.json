@@ -1,0 +1,16 @@
+{
+  "id": "AAP",
+  "name": "Aam Aadmi Party",
+  "short_name": "AAP",
+  "color": "#0072bc",
+  "official_url": "https://aamaadmiparty.org/",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Aam_Aadmi_Party",
+        "name": "Wikipedia - Aam Aadmi Party",
+        "retrieved_at": "2026-04-23T00:00:00+05:30"
+      }
+    ]
+  }
+}
