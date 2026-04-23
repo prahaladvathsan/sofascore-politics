@@ -47,14 +47,14 @@ ADR's current Terms of Use require express written consent for automated
 collection from MyNeta. This workstream is tracked separately from Phase 3
 implementation; Phase 3 does not depend on its outcome.
 
-| Item | Value |
-| --- | --- |
-| Contact | `adr@adrindia.org` |
-| Status | Pending (email drafted, not yet sent) |
-| Request sent at | TBD |
-| Response received at | TBD |
-| Outcome | TBD |
-| Unlock effect | If granted, enables a Phase 3.5 addition of MyNeta analysed fields (criminal cases, financial, education, profession) via rate-limited HTML collection. No change to Phase 3 scope if denied or unanswered. |
+| Item                 | Value                                                                                                                                                                                                       |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Contact              | `adr@adrindia.org`                                                                                                                                                                                          |
+| Status               | Pending (email drafted, not yet sent)                                                                                                                                                                       |
+| Request sent at      | TBD                                                                                                                                                                                                         |
+| Response received at | TBD                                                                                                                                                                                                         |
+| Outcome              | TBD                                                                                                                                                                                                         |
+| Unlock effect        | If granted, enables a Phase 3.5 addition of MyNeta analysed fields (criminal cases, financial, education, profession) via rate-limited HTML collection. No change to Phase 3 scope if denied or unanswered. |
 
 The outreach email template is maintained separately by the repo owner and is
 not committed to this repository.
